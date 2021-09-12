@@ -1,12 +1,26 @@
 // Including packages needed for this application
 //inquirer to get the data from terminal 
 const inquirer = require('inquirer');
+const fs = require('fs'); 
 //loading the readme template code 
 const generateReadme = require("./src/read-me-template.js");
+const {writeFile} = require('./utils/generate-site'); 
+
+
 
 const userPrompt = () => {
     return inquirer.prompt([
         {
+            type: 'input',
+            name: 'projectName', 
+            message: "What is your project name? "
+        },
+        {
+            type: 'input',
+            name: 'projectName', 
+            message: "Please write a description of your project"
+        },
+        {   
             type: 'input',
             name: 'githubUsername', 
             message: "What is your GitHub username ? ",
@@ -23,11 +37,6 @@ const userPrompt = () => {
             type: 'input',
             name: 'emailAddress', 
             message: "What is your email address? "
-        },
-        {
-            type: 'input',
-            name: 'projectName', 
-            message: "What is your project name? "
         },
         {
             type: 'checkbox',
@@ -63,11 +72,12 @@ const userPrompt = () => {
 
 
 userPrompt()
-    .then(generateReadme); 
-
-
-
-
+.then(userData => {
+    return generateReadme(userData); 
+})
+.then(ReadmeMD => {
+    return writeFile(ReadmeMD); 
+});  
 
 
 

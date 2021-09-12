@@ -1,6 +1,8 @@
 // Including packages needed for this application
 //inquirer to get the data from terminal 
 const inquirer = require('inquirer');
+//loading the readme template code 
+const generateReadme = require("./src/read-me-template.js");
 
 const userPrompt = () => {
     return inquirer.prompt([
@@ -61,9 +63,7 @@ const userPrompt = () => {
 
 
 userPrompt()
-    .then(userInput => {
-        console.log(userInput)
-    })
+    .then(generateReadme); 
 
 
 
@@ -73,8 +73,6 @@ userPrompt()
 
 
 
-// // TODO: Create an array of questions for user input
-// const questions = [];
 
 // // TODO: Create a function to write README file
 // function writeToFile(fileName, data) {}

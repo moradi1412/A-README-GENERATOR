@@ -17,7 +17,7 @@ const userPrompt = () => {
         },
         {
             type: 'input',
-            name: 'projectName', 
+            name: 'description', 
             message: "Please write a description of your project"
         },
         {   

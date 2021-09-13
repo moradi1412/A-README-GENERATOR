@@ -3,7 +3,7 @@
 The application will prompt user in Node.js to input information about the project, and will generate a readme file containing information such as license, github username, description of the project. 
 
 ## demo 
-[!]
+![demo](./demofiles/screen.gif)
 
 
 ## installation 
